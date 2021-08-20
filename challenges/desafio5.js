@@ -1,6 +1,7 @@
 // use("aggregations");
-// db.movies.find();
-// const favActors = ["Sandra Bullock", "Tom Hanks", "Julia Roberts", "Kevin Spacey", "George Clooney"]
+// // db.movies.find();
+// // const favActors = ["Sandra Bullock",
+//  "Tom Hanks", "Julia Roberts", "Kevin Spacey", "George Clooney"]
 
 // use("aggregations");
 // db.movies.aggregate([{
