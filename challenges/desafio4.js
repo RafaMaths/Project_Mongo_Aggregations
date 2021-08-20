@@ -1,7 +1,3 @@
-use("aggregations");
-db.movies.find();
-
-use("aggregations");
 db.movies.aggregate([{
   $addFields: {
     title_split: { $split: ["$title", " "] },
