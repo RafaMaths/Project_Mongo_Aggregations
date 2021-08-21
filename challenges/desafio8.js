@@ -1,3 +1,4 @@
+use("aggregations");
 db.air_alliances.aggregate([{
   $unwind: "$airlines",
 }, {
@@ -27,7 +28,7 @@ db.air_alliances.aggregate([{
   },
 }, {
   $project: {
-    totalRotas: 1,
+    totalRotas: "$somaRotas",
   },
 },
 ]);
