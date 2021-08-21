@@ -27,7 +27,7 @@ db.air_alliances.aggregate([{
   },
 }, {
   $project: {
-    totalRotas: { $arrayToObject: "$somaRotas" },
+    totalRotas: 1,
   },
 },
 ]);
