@@ -1,3 +1,4 @@
+const convertToMinutes = 60000;
 db.trips.aggregate([
   {
     $group: {
@@ -10,7 +11,7 @@ db.trips.aggregate([
     $project: {
       _id: 0,
       bikeId: "$_id",
-      duracaoMediaemMinutos: { $ceil: { $divide: ["$avgTime", 1000 * 60] } },
+      duracaoMediaemMinutos: { $ceil: { $divide: ["$avgTime", convertToMinutes] } },
     },
   },
   {
