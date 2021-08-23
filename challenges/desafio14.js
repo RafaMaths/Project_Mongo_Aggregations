@@ -1,4 +1,3 @@
-use ('aggregations');
 db.trips.aggregate([
   {
     $group: {
@@ -20,5 +19,4 @@ db.trips.aggregate([
   {
     $limit: 5,
   },
-  
 ]);
