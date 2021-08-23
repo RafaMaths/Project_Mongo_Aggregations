@@ -1,17 +1,13 @@
+const milisecondsToHour = 3600000;
+
 db.trips.aggregate([{
-  $addFields: {
-    timeDiference: {
-      $subtract: ["$stopTime", "$startTime"],
-    },
-  },
-}, {
   $group: {
     _id: "$usertype",
-    avgTravel: { $avg: "$timeDiference" },
+    avgTravel: { $avg: { $subtract: ["$stopTime", "$startTime"] } },
   },
 }, {
   $addFields: {
-    travelHours: { $divide: ["$avgTravel", 1000 * 60 * 60] },
+    travelHours: { $divide: ["$avgTravel", milisecondsToHour] },
 
   },
 }, {

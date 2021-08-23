@@ -3,13 +3,10 @@ db.trips.aggregate([{
     birthYear: { $exists: 1, $ne: "" },
   },
 }, {
-  $addFields: {
-    bornToInt: { $toInt: "$birthYear" },
-  } }, {
   $group: {
     _id: null,
-    maiorAnoNascimento: { $max: "$bornToInt" },
-    menorAnoNascimento: { $min: "$bornToInt" },
+    maiorAnoNascimento: { $max: { $toInt: "$birthYear" } },
+    menorAnoNascimento: { $min: { $toInt: "$birthYear" } },
   } }, {
   $project: {
     _id: 0,
