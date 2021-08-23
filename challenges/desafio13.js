@@ -21,11 +21,11 @@ db.trips.aggregate([{
   },
 }, {
   $addFields: {
-    timeToHour: { $divide: ["$avgTime", 1000 * 60] },
+    timeToMinute: { $divide: ["$avgTime", 1000 * 60] },
   },
 }, {
   $project: {
     _id: 0,
-    duracaoMediaemMinutos: { $ceil: "$timeToHour" },
+    duracaoMediaemMinutos: { $ceil: "$timeToMinute" },
   },
 }]);
